@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
+# 打开一个文件
+fo = open("foo.txt", "r+")
+str = fo.read(10)
+print ("读取的字符串是 : ", str)
+ 
+# 查找当前位置
+position = fo.tell()
+print ("当前文件位置 : ", position)
+ 
+# seek第一个参数为参考位置，0：文件开头，1：当前位置，"2：文件末尾
+# seek第二个参数为移动字节(相对参考位置移动的字节数)，0：文件开头，1：当前位置，"2：文件末尾
+
+# 把指针再次重新定位到文件开头
+position = fo.seek(0, 0)
+position = fo.tell()
+print ("定位后文件位置 : ", position)
+
+str = fo.read(10)
+print ("重新读取字符串 : ", str)
+# 关闭打开的文件
+fo.close()
