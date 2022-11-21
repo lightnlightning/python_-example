@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-try:
-    fh = open("testfile", "w")
-    fh.write("这是一个测试文件，用于测试异常!!\n")
-    print ("这是一个测试文件，用于测试异常!!\n")
-except IOError:
-    print ("Error: 没有找到文件或读取文件失败")
-finally:
-    print ("关闭文件")
-    fh.close()
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise ValueError('invalid value: %s' % s)
+    return 10 / n
 
-#为了触发异常,禁用testfile文件的写权限
-#在终端执行以下命令
-#chmod -w testfile
-#还原写入权限
-#chmod +w testfile
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        print(e)
+        # 可以选择把当前的异常又抛出bar(),执行以下代码raise
+        #raise
+
+bar()
 
