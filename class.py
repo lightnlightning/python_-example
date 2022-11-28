@@ -1,14 +1,17 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
  
-
-class Parent:        # 定义父类
-   def myMethod(self):
-      print ('调用父类方法')
+class Vector:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
  
-class Child(Parent): # 定义子类
-   def myMethod(self):
-      print ("重写父类方法")
+   def __str__(self):
+      return 'Vector (%d, %d)' % (self.a, self.b)
+   
+   def __add__(self,other):
+      return Vector(self.a + other.a, self.b + other.b)
  
-c = Child()          # 子类实例
-c.myMethod()         # 子类调用重写方
+v1 = Vector(2,10)
+v2 = Vector(5,-2)
+print (v1 + v2)
