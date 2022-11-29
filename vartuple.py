@@ -13,3 +13,8 @@ def printinfo( arg1, *vartuple ):
 # 调用printinfo 函数
 printinfo( 10 )
 printinfo( 70, 60, 50 )
+print ("--------------------")
+nums = [1, 2, 3]
+printinfo( *nums )
+print ("--------------------")
+printinfo( *[1, 2, 3] )
